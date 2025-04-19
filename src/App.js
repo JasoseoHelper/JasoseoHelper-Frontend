@@ -5,6 +5,7 @@ import Header from "./layout/Header/Header";
 import Footer from "./layout/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./pages/Login/Login";
+import List from "./pages/resume/List";
 
 const PageLayout = (children) => {
   return (
@@ -24,6 +25,9 @@ function App() {
           <ScrollToTop/>
           <Routes>
             <Route path='/login' element={<Login/>}></Route>
+          </Routes>
+          <Routes>
+            <Route path='/resume/list' element={<List/>}></Route>
           </Routes>
         </Router>
         <Footer/>
