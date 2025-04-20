@@ -7,11 +7,14 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./pages/Login/Login";
 import List from "./pages/resume/List";
 
+
 const PageLayout = (children) => {
   return (
-      <div>
+      <div style={{height:"100%"}}>
         <Header/>
-        {children}
+          <div>
+            {children}
+          </div>
         <Footer/>
       </div>
   )
