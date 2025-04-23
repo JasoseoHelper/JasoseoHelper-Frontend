@@ -5,35 +5,30 @@ import Header from "./layout/Header/Header";
 import Footer from "./layout/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./pages/Login/Login";
+import Profile from "./pages/Profile/Profile";
+import SignUp from "./pages/SignUp/SignUp";
 import List from "./pages/resume/List";
-
-
-const PageLayout = (children) => {
-  return (
-      <div style={{height:"100%"}}>
-        <Header/>
-          <div>
-            {children}
-          </div>
-        <Footer/>
-      </div>
-  )
-}
 
 function App() {
   return (
-      <div>
-        <Header/>
-        <Router>
-          <ScrollToTop/>
-          <Routes>
-            <Route path='/login' element={<Login/>}></Route>
-          </Routes>
-          <Routes>
-            <Route path='/resume/list' element={<List/>}></Route>
-          </Routes>
-        </Router>
-        <Footer/>
+      <div style={{height:"100%"}}>
+          <Header/>
+          <Router>
+              <ScrollToTop/>
+              <Routes>
+                  <Route path='/login' element={<Login/>}></Route>
+              </Routes>
+              <Routes>
+                  <Route path='/resume/list' element={<List/>}></Route>
+              </Routes>
+              <Routes>
+                  <Route path='/profile' element={<Profile/>}></Route>
+              </Routes>
+              <Routes>
+                  <Route path='/signup' element={<SignUp/>}></Route>
+              </Routes>
+          </Router>
+          <Footer/>
       </div>
   );
 }
