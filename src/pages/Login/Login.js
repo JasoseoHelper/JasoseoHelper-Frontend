@@ -26,10 +26,10 @@ export default function Login() {
             );
             const jwt = response.data.accessToken;
             localStorage.setItem('jwt', jwt); // 또는 쿠키에 저장
-            alert('로그인 성공!');
+            navigate('/');
             // 이후 페이지 이동
         } catch (err) {
-            setErrorMsg('로그인 실패! 이메일 또는 비밀번호를 확인하세요.');
+            setErrorMsg('이메일 또는 패스워드를 확인하세요.');
         }
 
     }
@@ -37,33 +37,31 @@ export default function Login() {
 
     return (
         <form onSubmit={handleLogin}>
-            <Container sx={{
+            <Container maxWidth={"md"} sx={{
                 display: 'flex',
                 justifyContent: 'center',
-                border: '1px solid gray',
-                borderRadius: 2,
                 padding: 3,
                 backgroundColor: '#f9f9f9',
-                maxWidth: "600px"
             }}>
                 <table width={"70%"}>
                     <tbody>
-                        <tr>
-                            <td colSpan={3}>
-                                <AccountCircleIcon sx={{ fontSize: 120, color: '#1976d2'}}/>
-                                <br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>이메일</td>
-                            <td>
-                                <TextField
-                                    type="email"
+                    <tr>
+                        <td colSpan={3}>
+                            <p style={{fontSize: 40,}}>로그인</p>
+                            <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이메일</td>
+                        <td>
+                            <TextField
+                                type="email"
                                     placeholder="이메일을 입력하세요"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
                                     size={"small"}
+                                    sx={{width:"80%"}}
                                 />
                             </td>
                             <td rowSpan={2}>
@@ -71,15 +69,16 @@ export default function Login() {
                             </td>
                         </tr>
                         <tr>
-                            <td>비밀번호</td>
+                            <td>패스워드</td>
                             <td>
                                 <TextField
                                     type="password"
-                                    placeholder="비밀번호를 입력하세요"
+                                    placeholder="패스워드를 입력하세요"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
                                     size={"small"}
+                                    sx={{width:"80%"}}
                                 />
                             </td>
                         </tr>
@@ -89,7 +88,7 @@ export default function Login() {
                         <tr>
                             <td colSpan={3}>
                                 <div style={{textAlign: "center", padding: "16px"}}>
-                                    <p>비밀번호를 잊으셨나요? <Link to="/password-reset">비밀번호 초기화</Link></p>
+                                    <p>패스워드를 잊으셨나요? <Link to="/password-reset">패스워드 초기화</Link></p>
                                     <p>회원이 아니신가요? <Link to="/signup">회원가입 하기</Link></p>
                                 </div>
                             </td>
